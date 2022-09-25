@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="example" onmouseover="mouselog(event)" onmouseout="mouselog(event)" onclick="mouselog(event)">
+
+  <p id="uniqueID"></p>
+   <button id="button" >click me</button>
+  <div id="parent" >parent
+    <div id="child">child</div>
+  </div>
+
+  <textarea id="text"></textarea>
+  <input type="button" onclick="text.value=''" value="Clear">
+  <input type="button" id="btn" onclick="btn()" value="download csv">
+  <script src="script.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+</body>
+
+</html>
