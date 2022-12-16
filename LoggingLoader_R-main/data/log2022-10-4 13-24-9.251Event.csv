@@ -1,0 +1,10 @@
+﻿Timestamp;SessionID;DeviceID;Event;Element;Screen-x;Screen-y;SectionID;SessionDuration;Email;Framecount
+2022-10-4 13:25:4.298;32;9fed194c-783d-4e06-9341-35794ecfb9df;mouseout;btn_clear;705;107;http://127.0.0.1:4756/;1664882704298;anonymous;NA
+2022-10-4 13:25:4.298;32;9fed194c-783d-4e06-9341-35794ecfb9df;mouseover;body;705;107;http://127.0.0.1:4756/;1664882704298;anonymous;NA
+2022-10-4 13:25:4.930;32;9fed194c-783d-4e06-9341-35794ecfb9df;mouseout;body;583;101;http://127.0.0.1:4756/;1664882704930;anonymous;NA
+2022-10-4 13:25:4.930;32;9fed194c-783d-4e06-9341-35794ecfb9df;mouseover;btn_download;583;101;http://127.0.0.1:4756/;1664882704930;anonymous;NA
+2022-10-4 13:25:4.951;32;9fed194c-783d-4e06-9341-35794ecfb9df;mouseout;btn_download;583;92;http://127.0.0.1:4756/;1664882704951;anonymous;NA
+2022-10-4 13:25:4.951;32;9fed194c-783d-4e06-9341-35794ecfb9df;mouseover;;583;92;http://127.0.0.1:4756/;1664882704951;anonymous;NA
+2022-10-4 13:25:5.15;32;9fed194c-783d-4e06-9341-35794ecfb9df;mouseout;;583;77;http://127.0.0.1:4756/;1664882705015;anonymous;NA
+2022-10-4 13:25:5.15;32;9fed194c-783d-4e06-9341-35794ecfb9df;mouseover;btn_download;583;77;http://127.0.0.1:4756/;1664882705015;anonymous;NA
+2022-10-4 13:25:5.421;32;9fed194c-783d-4e06-9341-35794ecfb9df;click;btn_download;583;73;http://127.0.0.1:4756/;1664882705421;anonymous;NA
