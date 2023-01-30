@@ -25,7 +25,7 @@ In the UI part of your dashboard:
 
 -Then to capture continuous measurements, include these 2 lines:![image](https://user-images.githubusercontent.com/73820951/215494458-13ba8811-e980-48ef-bd60-f9b8bcf904d5.png)
 The "continuousMeasurement" function is already in the "script.js" file, it allows the capture of continuous measurements.
-The "Frequency" function is already in the "script.js" file, it allows the capture of continuous measurements every 16ms.
+The "Frequence" function is already in the "script.js" file, it allows the capture of continuous measurements every 16ms.
 
 - Regarding the capture of events:
 You just have to call "addEventListener" with the name of the desired event like this:![image](https://user-images.githubusercontent.com/73820951/215495276-d59e6800-2dbb-44a5-b8d4-c7637d17d499.png)
