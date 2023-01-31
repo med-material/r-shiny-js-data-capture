@@ -21,29 +21,61 @@ These 3 types of data correspond to the 3 csv files that we will recover after e
 In the UI part of your dashboard:
 
 - Include these 2 lines obligatorily:
-![image](https://user-images.githubusercontent.com/73820951/215494126-db4da265-54a7-4c75-aa6a-8aaaf36198d1.png)
+```
+useShinyjs(),
+    includeScript(path = "script.js"),
+```
 
--Then to capture continuous measurements, include these 2 lines:![image](https://user-images.githubusercontent.com/73820951/215494458-13ba8811-e980-48ef-bd60-f9b8bcf904d5.png)
+-Then to capture continuous measurements, include these 2 lines:
+```
+tags$script("document.addEventListener('pointermove',function(event){ContinuousMeasurement(event)});"),
+    tags$script("setInterval(frequence,16)"),
+ ```
 The "continuousMeasurement" function is already in the "script.js" file, it allows the capture of continuous measurements.
 The "Frequence" function is already in the "script.js" file, it allows the capture of continuous measurements every 16ms.
 
 - Regarding the capture of events:
-You just have to call "addEventListener" with the name of the desired event like this:![image](https://user-images.githubusercontent.com/73820951/215495276-d59e6800-2dbb-44a5-b8d4-c7637d17d499.png)
+You just have to call "addEventListener" with the name of the desired event like this:
+```
+tags$script("document.addEventListener('click',function(event){mouselog(event)});"),
+```
+
 The "mouselog" function is already in the "script.js" file, it allows the capture of events.
 
 Here is an example covering all the previous points : 
-![image](https://user-images.githubusercontent.com/73820951/215496394-633b807f-3fd9-4d1d-bf81-a627f44056b2.png)
+```
+shinyUI(fluidPage(
+    includeCSS("custom.css"),
+    useShinyjs(),
+    includeScript(path = "script.js"),
+    tags$script("document.addEventListener('pointermove',function(event){ContinuousMeasurement(event)});"),
+    tags$script("setInterval(frequence,16)"),
+    tags$script("document.addEventListener('pointerdown',function(event){mouselog(event)});"),
+    tags$script("document.addEventListener('pointerup',function(event){mouselog(event)});"),
+    tags$script("document.addEventListener('pointerover',function(event){mouselog(event)});"),
+    tags$script("document.addEventListener('pointerout',function(event){mouselog(event)});"),
+    tags$script("document.addEventListener('click',function(event){mouselog(event)});"),
+    tags$script("document.addEventListener('keypress',function(event){mouselog(event)});"),
+    tags$script("document.addEventListener('scroll',function(event){mouselog(event)});"),
+    tags$script("document.addEventListener('gesturechange',function(event){mouselog(event)});"),
+```
 
-The last thing to do in the UI part is to create two buttons like this :![image](https://user-images.githubusercontent.com/73820951/215496714-e44d996e-2276-41fa-803f-84ca23701761.png)
+The last thing to do in the UI part is to create two buttons like this :
+```
+actionButton("btn_download", "Download CSV"),
+    actionButton("btn_clear", "Clear"),
+```
+
 - The "btn_download" button allows you to download the 3 CSV files.
 - The "btn_clear" button, allows you to reset the cached data capture made so far.
 
 In the Server part of your dashboard:
 
 - paste these two lines:
-![image](https://user-images.githubusercontent.com/73820951/215500011-74ec43a3-247c-4d22-b9d6-738a2a4b938f.png)
+```
 onclick("btn_download", runjs("stock_event+= logging_ended+','; Meta();Btn(stock_event,link_event,head_fields1);Btn(stock_frequence,link_continuous_measurment,head_fields2);Btn(stock_meta,link_meta,head_fields3)"))
-onclick("btn_clear", runjs("stock_event='';stock_continuous_measurement='';stock_frequence='';stock_meta=''"))
+  onclick("btn_clear", runjs("stock_event='';stock_continuous_measurement='';stock_frequence='';stock_meta=''"))
+```
 
 It just corresponds to the different actions when clicking the buttons.
 For meta data, they are captured when pressing the download button with the meta() function call.
@@ -51,17 +83,24 @@ For meta data, they are captured when pressing the download button with the meta
 ### If you use a website 
 
 - The first step is to include the "script.js" file in your project, which contains all the functions allowing us to capture the data.
+```
 <script src="script.js"></script>
-
+```
 - To call the events, call them directly in your html
-- Here is an example for the body:![image](https://user-images.githubusercontent.com/73820951/215759936-73dbf0d6-4db8-434e-b696-f266811f4455.png)
-
+- Here is an example for the body:
+```
+<body id="example" onmouseover="mouselog(event)" onmouseout="mouselog(event)" onclick="mouselog(event)" onpointermove="ContinuousMeasurement(event)">
+```
 -Do the same for continuous measurements by calling the "pointermove" event with the "continuous measurement" function.
 Like this :
-![image](https://user-images.githubusercontent.com/73820951/215760436-7620164b-932e-40ac-8a67-8c949f6c821e.png)
-
+```
+onpointermove="ContinuousMeasurement(event)"
+```
 -Then you just have to create the 2 buttons as for the dashboard:
-- ![image](https://user-images.githubusercontent.com/73820951/215761431-7f6f81bb-2a0b-480e-9460-eca5b369c628.png)
+```
+<input type="button" onclick="stock_event='';stock_continuous_measurement='';stock_frequence='';stock_meta=''" value="Clear">
+  <input type="button" id="btn" onclick="stock_event+= logging_ended+','; Meta();Btn(stock_event,link_event,head_fields1);Btn(stock_frequence,link_continuous_measurment,head_fields2);Btn(stock_meta,link_meta,head_fields3)" value="download csv">
+  ```
 
 For meta data, they are captured when pressing the download button with the meta() function call.
 
