@@ -109,6 +109,18 @@ For meta data, they are captured when pressing the download button with the meta
 
 ### The events file
 
+At this time, we are capturing these events : 
+
+- Pointerdown: https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerdown_event
+- Pointerup: https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerup_event
+- Pointerover: https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerover_event
+- Pointerout: https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerout_event
+- Click : https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event
+- Keypress: https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event
+- scroll: https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
+
+#### Composition 
+
 - Timestamp (in the format yyyy-mm-dd hh:mm:ss.mmm )
 - SessionID (a unique ID for the session)
 - DeviceID: a unique ID for the device.
