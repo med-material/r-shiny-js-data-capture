@@ -22,7 +22,7 @@ shinyServer(function(input, output, session) {
   
   ## Onclick action button
   onclick("btn_download", runjs("stock_event+= logging_ended+','; Meta();Btn(stock_event,link_event,head_fields1);Btn(stock_frequence,link_continuous_measurment,head_fields2);Btn(stock_meta,link_meta,head_fields3)"))
-  onclick("btn_clear", runjs("stock_event='';stock_continuous_measurement='';stock_meta=''"))
+  onclick("btn_clear", runjs("stock_event='';stock_continuous_measurement='';stock_frequence='';stock_meta=''"))
 
   #auth = read.csv("credentials.csv", header=TRUE,sep=",", colClasses=c("character"))
   connected = FALSE
